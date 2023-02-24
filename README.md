@@ -1,4 +1,4 @@
-<h1>ML-based student dropout prediction model</h1>
+<h1>ML-based Student Dropout Prediction Model</h1>
 
 <h2>Introduction:</h2>
 Access to education as an adolescent is a crucial determinant of health and is directly correlated with parental educational level and socioeconomic status, presenting a viable method to utilize machine learning (ML) models for resource allocation (Henry et al., 2011).
@@ -30,8 +30,6 @@ The data set we are working with is easily usable, and with a plethora of differ
 
 <h2>References:</h2>
 
-<!-- properly format the references -->
-
 1. Berens, J., Schneider, K., Görtz, S., Oster, S., & Burghoff, J. (2018). Early detection of students
    at risk – predicting student dropouts using administrative student data and machine learning methods. SSRN Electronic Journal. https://doi.org/10.2139/ssrn.3275433
 
@@ -58,7 +56,14 @@ The data set we are working with is easily usable, and with a plethora of differ
    Hovdhaugen, E., Wollscheid, S.: Drop-Out and Completion in Higher Education in Europe - Literature Review. (2015).
 
 <h2>Contribution Table:</h2>
-![Contribution Table](images/Contribution_Table.png)
+
+| Name                        | Contribution                               |
+| --------------------------- | ------------------------------------------ |
+| Andy Ji                     | Introduction, Video                        |
+| Braeden Meikle              | Introduction, Contribution Table, Timeline |
+| Venkata Harsh Suhith Muriki | Problem Definition, GitHub                 |
+| Alex Brezovsky              | Potential Results and Discussion           |
+| Quint Fain                  | Methods                                    |
 
 <h2>Semester TimeLine:</h2>
 ![Project Deadline](images/Project_Deadlines.png)
