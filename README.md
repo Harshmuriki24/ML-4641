@@ -25,6 +25,7 @@ CS 4641 Project
 ![Contribution Table](images/Contribution_Table.png)
 
 **Semester TimeLine**
+
 ![Project Deadline](images/Project_Deadlines.png)
 
 
