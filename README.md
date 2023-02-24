@@ -1,7 +1,3 @@
-<head>
-  <link rel="stylesheet" type="text/css" href="dark-mode.css" />
-</head>
-
 <h1>ML-based Student Dropout Prediction Model</h1>
 
 <h2>Introduction:</h2>
@@ -24,8 +20,8 @@ Once we have prepared the data, we can utilize supervised training methods like 
 
 <h2>Potential Results and Discussion:</h2>
 To estimate dropout rates of Portuguese college students from the dataset, we'll use an objective estimator scoring method or metric function API to compare and quantify changes in the model's quality. We can utilize simple scoring functions like _score, _error, or _loss from modules such as sklearn.metrics to maximize the score, indicating a better model. With a diverse dataset, we anticipate low margins of error and high model performance in determining the dropout rates.
-<h2>References:</h2>
 
+<h2>References:</h2>
 1. Berens, J., Schneider, K., Görtz, S., Oster, S., & Burghoff, J. (2018). Early detection of students
    at risk – predicting student dropouts using administrative student data and machine learning methods. SSRN Electronic Journal. https://doi.org/10.2139/ssrn.3275433
 
@@ -63,8 +59,3 @@ To estimate dropout rates of Portuguese college students from the dataset, we'll
 
 <h2>Semester TimeLine:</h2>
 ![Project Deadline](images/Project_Deadlines.png)
-
-<div class="border rounded-2 color-bg-primary p-2 text-center">
-  <h2>Dark mode</h2>
-  <p>Toggle dark mode by clicking on the moon icon in the top right corner.</p>
-</div>
