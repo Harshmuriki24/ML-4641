@@ -1,3 +1,5 @@
-body {
-    font-family: 'Roboto', sans-serif;
+@media (prefers-color-scheme: light) {
+  .color-bg-primary {
+    display: none;
+  }
 }
