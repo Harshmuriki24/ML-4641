@@ -1,4 +1,6 @@
-<link rel="stylesheet" type="text/css" href="style.css">
+<head>
+  <link rel="stylesheet" type="text/css" href="dark-mode.css" />
+</head>
 
 <h1>ML-based Student Dropout Prediction Model</h1>
 
