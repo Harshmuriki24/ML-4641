@@ -3,7 +3,6 @@ CS 4641 Project
 **Introduction:**
     Access to education as an adolescent is a crucial determinant of health and is directly correlated with parental educational level and socioeconomic status, presenting a viable method to utilize machine learning (ML) models for resource allocation (Henry et al., 2011). Similarly to how identifying cancer early on can be life-saving, having a model that can accurately predict if students will drop out can be utilized to prevent some students from dropping out. One study showed that if likely-to-drop-out students were recognized early and given a plan to get back on track, there was a “14% reduction in dropout rates” (Burgos et al., 2018). Having a large portion of the workforce with a college degree is beneficial to society, and preventing students from dropping out prematurely is a boon (Vossensteyn et al., 2015).
     Previous studies utilizing ML in predictive modeling for school dropout have primarily utilized decision-tree, regression analysis, and neural networks. One study in Madrid, as with its follow up study, utilized 12035 participants identified “student dedication, age, university entrance grade” and “parental/guardian educational background and student degree” as primary factors influencing retention by utilizing decision tree techniques (Constante-Amores et al., 2021; Segura et al., 2022). Similarly, a study conducted in German universities utilized the same methods but did not include many socioeconomic features (Berens et al., 2018). Surprisingly, money does not play as large of a role in dropout rates as it may seem, and many other factors have various effects (Stinebrickner, 2014). A 2020 paper focused solely on socioeconomic features of age, race, human development index, family income, high school provenance, and distance to university; however, these features are very limiting and do not encompass the full extent of a student’s background (Freitas et al., 2020).
-
     The dataset we will examine concerns 35 various economic, social, and demographic features of 4424 college students in Portugal.
     
 ****Problem Definition:****
@@ -23,10 +22,10 @@ CS 4641 Project
   The data set we are working with is easily usable, and with a plethora of different data to evaluate and feed into our model we will have a lot of success in our goal of determining the dropout rates of Portuguese college students. We will be expecting quite low margins of error and a high returning score for our model once we develop it.
 
 **Contribution Table:**
-![alt text](images/Contribution_Table.png)
+![Contribution Table](images/Contribution_Table.png)
 
 **Semester TimeLine**
-![alt text](images/Project_Deadlines.png)
+![Project Deadline](images/Project_Deadlines.png)
 
 
 
