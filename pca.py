@@ -2,6 +2,7 @@ import pandas as pd  # data processing, CSV file I/O (e.g. pd.read_csv)
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
+from sklearn.linear_model import LogisticRegression
 
 url = 'higher-education-predictors-of-student-retention/dataset.csv'
 df = pd.read_csv(url)
@@ -15,7 +16,7 @@ target = df['Target']
 train_img, test_img, train_lbl, test_lbl = train_test_split(
     data, target, test_size=1/5.0, random_state=0)
 
-# print(train_img)
+#print(train_img)
 scaler = StandardScaler()
 
 # Fit on training set only.
@@ -33,4 +34,16 @@ pca.fit(train_img)
 train_img = pca.transform(train_img)
 test_img = pca.transform(test_img)
 
-# print(test_img)
+#print(test_img)
+
+########################################################################
+#LINEAR REGRESSION SECTION. THIS SHOULD BE SPLIT INTO A SEPERATE FILE ##
+########################################################################
+
+logreg = LogisticRegression(solver="lbfgs")
+logreg.fit(train_img, train_lbl)
+#predicting for all observations
+logreg.predict(test_img)
+
+#Performance section
+logreg.score(test_img, test_lbl)
