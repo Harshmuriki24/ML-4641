@@ -19,9 +19,9 @@ def main():
     sns.set_theme()
     dataset = pd.read_csv(url) # read the unfiltered data
 
-    sns.relplot(
+    unfiltered = sns.relplot(
         data=dataset
-    )
+    ).set(title='Unfiltered Data')
 
     plt.show() # show the plot
 
