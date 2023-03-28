@@ -1,5 +1,5 @@
-import Preprocess
-import Model
+from Preprocess import Preprocess
+from Model import Model
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -24,6 +24,7 @@ def main():
     )
 
     plt.show() # show the plot
+
 
 if __name__ == "__main__":
     main()
