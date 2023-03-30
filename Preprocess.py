@@ -29,10 +29,6 @@ class Preprocess(object):
             self.data, target, test_size=1 / 5.0, random_state=0)
 
         # print(train_img)
-
-        print("train_img size before: " + str(self.train_img.size))
-        print("test_img size before: " + str(self.test_img.size))
-
         scaler = StandardScaler()
 
         # Fit on training set only.
@@ -49,11 +45,4 @@ class Preprocess(object):
         # Create the test and the train data
         self.train_img = pca.transform(self.train_img)
         self.test_img = pca.transform(self.test_img)
-
-        print("train_img size after: " + str(self.train_img.size))
-        print("test_img size after: " + str(self.test_img.size))
-
-
-pca = Preprocess("C:/Users/alexb/Documents/GitHub/ML-4641/higher-education-predictors-of-student-retention/dataset.csv")
-pca.clean_data()
 
