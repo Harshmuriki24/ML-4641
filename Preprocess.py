@@ -14,6 +14,9 @@ class Preprocess(object):
         self.test_lbl = None
 
     def clean_data(self):
+
+        #plot filtered data
+
         df = pd.read_csv(self.url)
         # print(df['Target'])
         # print(df.loc[:, df.columns != 'Target'])
@@ -42,3 +45,4 @@ class Preprocess(object):
         # Create the test and the train data
         self.train_img = pca.transform(self.train_img)
         self.test_img = pca.transform(self.test_img)
+

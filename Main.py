@@ -2,7 +2,9 @@ from Preprocess import Preprocess
 from Model import Model
 from Model2 import Model2
 from Model3 import Model3
-
+import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
 
 def main():
     url = 'higher-education-predictors-of-student-retention/dataset.csv'
@@ -30,3 +32,12 @@ def main():
     #######THIS IS THE KMEANS MODEL############
     kmeans_model = model3.kmeans
     #######USE THIS FILE TO CREATE AND PLOT IMAGES##########
+
+    sns.set_theme()
+    unfiltered = pd.read_csv(url)
+    sns.relplot(data=unfiltered).set(title='Unfiltered Data')
+    plt.show()
+
+
+if __name__ == '__main__':
+    main()
