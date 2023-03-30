@@ -7,19 +7,23 @@ from sklearn.decomposition import PCA
 class Preprocess(object):
     def __init__(self, url):
         self.url = url
-        self.data = None
-        self.train_img = None
-        self.test_img = None
-        self.train_lbl = None
-        self.test_lbl = None
+
+        df = pd.read_csv(self.url)
+        self.data = df.loc[:, df.columns != 'Target']
+        target = df['Target']
+
+        self.train_img, self.test_img, self.train_lbl, self.test_lbl = train_test_split(
+            self.data, target, test_size=1 / 5.0, random_state=0)
+        # self.train_img = None
+        # self.test_img = None
+        # self.train_lbl = None
+        # self.test_lbl = None
 
     def clean_data(self):
 
-        #plot filtered data
-
         df = pd.read_csv(self.url)
-        # print(df['Target'])
-        # print(df.loc[:, df.columns != 'Target'])
+        #print(df['Target'])
+        #print(df.loc[:, df.columns != 'Target'])
 
         self.data = df.loc[:, df.columns != 'Target']
         target = df['Target']
