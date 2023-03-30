@@ -57,5 +57,5 @@ To estimate dropout rates of Portuguese college students from the dataset, we'll
 | Alex Brezovsky              | Potential Results and Discussion           |
 | Quint Fain                  | Methods                                    |
 
-<h2>Semester TimeLine:</h2>
+<h2>Semester Timeline:</h2>
 ![Project Deadline](images/Project_Deadlines.png)
