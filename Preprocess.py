@@ -30,8 +30,11 @@ class Preprocess(object):
 
         # print(train_img)
 
-        print("train_img size before: " + str(self.train_img.size))
-        print("test_img size before: " + str(self.test_img.size))
+        #print("train_img size before: " + str(self.train_img.size))
+        #print("test_img size before: " + str(self.test_img.size))
+        print("train_img dims before: " + str(self.train_img.shape))
+        print("test_img dims before: " + str(self.test_img.shape))
+
 
         scaler = StandardScaler()
 
@@ -50,8 +53,10 @@ class Preprocess(object):
         self.train_img = pca.transform(self.train_img)
         self.test_img = pca.transform(self.test_img)
 
-        print("train_img size after: " + str(self.train_img.size))
-        print("test_img size after: " + str(self.test_img.size))
+        #print("train_img size after: " + str(self.train_img.size))
+        #print("test_img size after: " + str(self.test_img.size))
+        print("train_img dims after: " + str(self.train_img.shape))
+        print("test_img dims after: " + str(self.test_img.shape))
 
 
 pca = Preprocess("C:/Users/alexb/Documents/GitHub/ML-4641/higher-education-predictors-of-student-retention/dataset.csv")
