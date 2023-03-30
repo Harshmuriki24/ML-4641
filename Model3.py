@@ -39,3 +39,5 @@ class Model3(object):
         self.kmeans.predict(preprocessed_data.test_img)
         # Performance section
         self.score = self.kmeans.score(preprocessed_data.test_img, preprocessed_data.test_lbl)
+
+        #plt.show()

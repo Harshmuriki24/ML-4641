@@ -15,5 +15,7 @@ class Model(object):
         # predicting for all observations
         self.logreg.predict(preprocessed_data.test_img)
 
+        #plot prediction?
+
         # Performance section
         self.score = self.logreg.score(preprocessed_data.test_img, preprocessed_data.test_lbl)
