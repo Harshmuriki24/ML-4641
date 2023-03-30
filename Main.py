@@ -10,8 +10,8 @@ def main():
     url = 'higher-education-predictors-of-student-retention/dataset.csv'
     preprocessed_data = Preprocess(url)
 
-    train_before = preprocessed_data.train_img.shape[0] * preprocessed_data.train_img.shape[1]
-    test_before = preprocessed_data.test_img.shape[0] * preprocessed_data.test_img.shape[1]
+    train_before = preprocessed_data.train_img.shape[1]
+    test_before = preprocessed_data.test_img.shape[1]
 
     preprocessed_data.clean_data()
 
@@ -43,13 +43,13 @@ def main():
     sns.relplot(data=unfiltered).set(title='Unfiltered Data')
     plt.show()
 
-    train_after = preprocessed_data.train_img.shape[0] * preprocessed_data.train_img.shape[1]
-    test_after = preprocessed_data.test_img.shape[0] * preprocessed_data.test_img.shape[1]
+    train_after = preprocessed_data.train_img.shape[1]
+    test_after = preprocessed_data.test_img.shape[1]
 
     xlabels = ["Train Image Before", "Test Image Before", "Train Image After", "Test Image After"]
     ylabels = [train_before, test_before, train_after, test_after]
-    dataf = pd.DataFrame({" ":xlabels, "Size":ylabels})
-    sns.barplot(x = " ", y = "Size", data=dataf).set(title='Size of Image before and after PCA')
+    dataf = pd.DataFrame({" ":xlabels, "Features":ylabels})
+    sns.barplot(x = " ", y = "Features", data=dataf).set(title='Features of Image before and after PCA')
     plt.show()
 
 if __name__ == '__main__':
