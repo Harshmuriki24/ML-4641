@@ -7,23 +7,19 @@ from sklearn.decomposition import PCA
 class Preprocess(object):
     def __init__(self, url):
         self.url = url
-
-        df = pd.read_csv(self.url)
-        self.data = df.loc[:, df.columns != 'Target']
-        target = df['Target']
-
-        self.train_img, self.test_img, self.train_lbl, self.test_lbl = train_test_split(
-            self.data, target, test_size=1 / 5.0, random_state=0)
-        # self.train_img = None
-        # self.test_img = None
-        # self.train_lbl = None
-        # self.test_lbl = None
+        self.data = None
+        self.train_img = None
+        self.test_img = None
+        self.train_lbl = None
+        self.test_lbl = None
 
     def clean_data(self):
 
+        #plot filtered data
+
         df = pd.read_csv(self.url)
-        #print(df['Target'])
-        #print(df.loc[:, df.columns != 'Target'])
+        # print(df['Target'])
+        # print(df.loc[:, df.columns != 'Target'])
 
         self.data = df.loc[:, df.columns != 'Target']
         target = df['Target']
@@ -33,6 +29,13 @@ class Preprocess(object):
             self.data, target, test_size=1 / 5.0, random_state=0)
 
         # print(train_img)
+
+        #print("train_img size before: " + str(self.train_img.size))
+        #print("test_img size before: " + str(self.test_img.size))
+        print("train_img dims before: " + str(self.train_img.shape))
+        print("test_img dims before: " + str(self.test_img.shape))
+
+
         scaler = StandardScaler()
 
         # Fit on training set only.
@@ -49,4 +52,13 @@ class Preprocess(object):
         # Create the test and the train data
         self.train_img = pca.transform(self.train_img)
         self.test_img = pca.transform(self.test_img)
+
+        #print("train_img size after: " + str(self.train_img.size))
+        #print("test_img size after: " + str(self.test_img.size))
+        print("train_img dims after: " + str(self.train_img.shape))
+        print("test_img dims after: " + str(self.test_img.shape))
+
+
+pca = Preprocess("C:/Users/alexb/Documents/GitHub/ML-4641/higher-education-predictors-of-student-retention/dataset.csv")
+pca.clean_data()
 
