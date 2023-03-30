@@ -69,3 +69,7 @@ To estimate dropout rates of Portuguese college students from the dataset, we'll
 
 <h2>Semester Timeline:</h2>
 <img src="images/Project_Deadlines.png" alt="Timeline" width="500" height="500">
+
+<img src="images/columns.png" width="800" height="500"/>
+<img src="images/size.png" width="800" height="500"/>
+<img src="images/elbow.png" width="800" height="500"/>
