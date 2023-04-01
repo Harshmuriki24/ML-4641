@@ -18,11 +18,17 @@ In order to ensure the accuracy and efficacy of our project's analysis of studen
 To achieve this, we can utilize methods such as Principal Component Analysis (PCA) or Latent Dirichlet Allocation (LDA) to condense the data before training our predictive model. By reducing the number of superfluous features, we will improve the accuracy and efficiency of our model. Below, we can see how PCA reduced the amount of columns of `train_img` and `test_img` from 34 to 21. PCA also reduced the size of `test_img` by about 43% and `train_img` by 37.5%.
 <img src="images/columns.png" width="800" height="500"/>
 <img src="images/size.png" width="800" height="500"/>
-At this point we have successfully preprocessed the data using PCA. Furthermore, we have implemented three seperate training models on the data. The first two methods are both supervised learning models, Logistic Regression and Random Forest. The last model is K-means, and unsupervised model. Our supervised models are far from perfect and report accuracies around 75%. We are unable to report the accuracy of K-means at this time, as there are a few issues with the model's implementation. We can improve the accuracies of our models by playing with the regularation of our model, removing data for currently "Enrolled" students from the data set, and by increasing the number of iterations we run K-means for. Using the Elbow method, we can see that about 5 clusters is optimal:
-<img src="images/elbow.png" width="800" height="500"/>
+
 
 <h2>Potential Results and Discussion:</h2>
-To estimate dropout rates of Portuguese college students from the dataset, we'll use an objective estimator scoring method or metric function API to compare and quantify changes in the model's quality. We can utilize simple scoring functions like _score, _error, or _loss from modules such as sklearn.metrics to maximize the score, indicating a better model. With a diverse dataset, we anticipate low margins of error and high model performance in determining the dropout rates.
+At this point we have successfully preprocessed the data using PCA. Furthermore, we have implemented three seperate training models on the data. The first two methods are both supervised learning models, Logistic Regression and Random Forest. The last model is K-means, and unsupervised model. To estimate dropout rates of Portuguese college students from the dataset, we used sklearn's _score function. With a diverse dataset, we anticipated low margins of error and high model performance in determining the dropout rates, though this was not the case for all models. Our supervised models are far from perfect and report accuracies at 75% (logistic regression) and 78% (random forest). These results indicate fine tuning of hyperparameters (especially with the random forest model), including features considered when splitting nodes and the exact number of decision trees in the forest model. Logistic regression hyperparameters using sklearn include solver (algorithm), penalty (regularization - generalization and regulation of overfitting), and C (regularization strength).
+
+
+Unfortunately, the accuracy of K-means sits at -18,000 (even after optimal clusters = 5 found using elbow method, see figure below), and as the sklearns kmeans accuracy method demonstrates that 'good clustering' scores are close to 0, this method needs significant improvement. We can improve the accuracies of our models by playing with the regularation of our model, removing data for currently "Enrolled" students from the data set, and by increasing the number of iterations we run K-means for. 
+
+Using the Elbow method, we can see that about 5 clusters is optimal:
+<img src="images/elbow.png" width="800" height="500"/>
+
 
 <h2>References:</h2>
 1. Berens, J., Schneider, K., Görtz, S., Oster, S., & Burghoff, J. (2018). Early detection of students
