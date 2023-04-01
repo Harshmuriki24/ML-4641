@@ -18,6 +18,8 @@ In order to ensure the accuracy and efficacy of our project's analysis of studen
 To achieve this, we can utilize methods such as Principal Component Analysis (PCA) or Latent Dirichlet Allocation (LDA) to condense the data before training our predictive model. By reducing the number of superfluous features, we will improve the accuracy and efficiency of our model. Below, we can see how PCA reduced the amount of columns of `train_img` and `test_img` from 34 to 21. PCA also reduced the size of `test_img` by about 43% and `train_img` by 37.5%.
 <img src="images/columns.png" width="800" height="500"/>
 <img src="images/size.png" width="800" height="500"/>
+To classify the data and identify student risk factors for dropout, we implemented 3 models: Logistic Regression, Random Forest, and K Means Clustering using sklearn.
+
 
 
 <h2>Potential Results and Discussion:</h2>
