@@ -70,11 +70,11 @@ Using the Elbow method, we can see that about 5 clusters is optimal:
 
 | Name                        | Contribution                               |
 | --------------------------- | ------------------------------------------ |
-| Andy Ji                     | Potential Results and Discussion           |
+| Andy Ji                     | Potential Results and Discussion, Supervised & Unsupervised Learning           |
 | Braeden Meikle              | Data Plotting |
-| Venkata Harsh Suhith Muriki | Updating Results, Supervised & Unsupervised Learning|
+| Quint Fain  | Updating Results, Supervised & Unsupervised Learning|
 | Alex Brezovsky              | Preprocessing using PCA                    |
-| Quint Fain                  | Preprocessing using PCA                    |
+| Venkata Harsh Suhith Muriki | Preprocessing using PCA                    |
 
 <h2>Semester Timeline:</h2>
 <img src="images/Project_Deadlines.png" alt="Timeline" width="500" height="500">
