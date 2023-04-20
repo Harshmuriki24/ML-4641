@@ -1,0 +1,45 @@
+# Import required libraries
+import numpy as np
+from keras.models import Sequential
+from keras.layers import Dense
+import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
+
+class NeuralNet:
+    def main():
+        # Define input data
+        X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
+        y = np.array([[0], [1], [1], [0]])
+
+        # Define the model architecture
+        model = Sequential()
+        model.add(Dense(4, input_dim=2, activation='relu'))
+        model.add(Dense(1, activation='sigmoid'))
+
+        # Compile the model
+        model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
+
+        # Train the model
+        model.fit(X, y, epochs=500, batch_size=4)
+
+        # Test the model
+        predictions = model.predict(X)
+        print(predictions)
+
+
+        url = 'higher-education-predictors-of-student-retention/dataset.csv'
+        sns.set_theme()
+        unfiltered = pd.read_csv(url)
+        maternity_status = unfiltered['Maternity status']
+        #sns.relplot(data=unfiltered).set(title='Unfiltered Data')
+        #plt.show()
+
+        xlabels = []#["Train Image Before", "Test Image Before", "Train Image After", "Test Image After"]
+        ylabels = []#[train_before, test_before, train_after, test_after]
+        dataf = pd.DataFrame({" ":xlabels, "Columns":ylabels})
+        #sns.barplot(x = " ", y = "Columns", data=dataf).set(title='title')
+        #plt.show()
+
+    if __name__ == '__main__':
+        main()
