@@ -13,13 +13,26 @@ We aim to address the issue of student dropouts by utilizing the dataset in the 
 
 3. Develop initiatives to improve accessibility for underprivileged groups based on demographic information in the dataset.
 
-<h2>Methods:</h2>
+<h2>Data Collection:</h2>
 In order to ensure the accuracy and efficacy of our project's analysis of student drop-out rates, we must consider the specific objectives, time frame, and data features at hand. The data sets we obtained contain demographic information on college students, including whether or not they dropped out before completing their degree. However, in order to streamline our analysis and improve our productivity, we must first determine how to prep the data by reducing irrelevant features.
-To achieve this, we can utilize methods such as Principal Component Analysis (PCA) or Latent Dirichlet Allocation (LDA) to condense the data before training our predictive model. By reducing the number of superfluous features, we will improve the accuracy and efficiency of our model.
-At this point we have successfully preprocessed the data using PCA. Furthermore, we have implemented three seperate training models on the data. The first two methods are both supervised learning models, Logistic Regression and Random Forest. The last model is K-means, and unsupervised model. Our supervised models are far from perfect and report accuracies around 75%. We are unable to report the accuracy of K-means at this time, as there are a few issues with the model's implementation. We can improve the accuracies of our models by playing with the regularation of our model, removing data for currently "Enrolled" students from the data set, and by increasing the number of iterations we run K-means for.  
+To achieve this, we utilized Principal Component Analysis (PCA) to condense the data before training our predictive model. By reducing the number of superfluous features, we will improve the accuracy and efficiency of our model. Below, we can see how PCA reduced the amount of columns of `train_img` and `test_img` from 34 to 21. PCA also reduced the size of `test_img` by about 43% and `train_img` by 37.5%. This was performed using sklearn with an 80-20 split between training and testing data, and 90% variance being implemented in PCA.
+<img src="images/columns.png" width="800" height="500"/>
+<img src="images/size.png" width="800" height="500"/>
+
+<h2>Methods:</h2>
+To classify the data and identify student risk factors for dropout, we implemented 3 models: Logistic Regression, Random Forest, and K Means Clustering using sklearn. The first two methods are both supervised learning models, Logistic Regression and Random Forest. The last model is K-means, and unsupervised model. We hope that this diversity in model selection will yield conclusive results and allow us to find the most suitable model for our data.
+
+
 
 <h2>Potential Results and Discussion:</h2>
-To estimate dropout rates of Portuguese college students from the dataset, we'll use an objective estimator scoring method or metric function API to compare and quantify changes in the model's quality. We can utilize simple scoring functions like _score, _error, or _loss from modules such as sklearn.metrics to maximize the score, indicating a better model. With a diverse dataset, we anticipate low margins of error and high model performance in determining the dropout rates.
+At this point we have successfully preprocessed the data using PCA. Furthermore, we have implemented three seperate training models on the data. To estimate dropout rates of Portuguese college students from the dataset, we used sklearn's _score function. With a diverse dataset, we anticipated low margins of error and high model performance in determining the dropout rates, though this was not the case for all models. Our supervised models are far from perfect and report accuracies at 75% (logistic regression) and 78% (random forest). These results indicate the necessity of fine tuning of hyperparameters (especially with the random forest model), including features considered when splitting nodes and the exact number of decision trees in the forest model. Logistic regression hyperparameters using sklearn include solver (algorithm), penalty (regularization - generalization and regulation of overfitting), and C (regularization strength).
+
+
+Unfortunately, the accuracy of K-means sits at -18,000 (even after optimal clusters = 5 found using elbow method, see figure below), and as the sklearns kmeans accuracy method demonstrates that 'good clustering' scores are close to 0, this method needs significant improvement. However, as kmeans maximizes intercluster distances and is an unsupervised model (does not use labels in training), a better metric of accuracy may be the Rand Index, which we will run for the next submission. Utilizing the Silhouette  Score yielded a result 0.009, and as higher scores (bounded betweeen -1 and 1) indicate better clustering, the clustering in this model was poor with clusters not being very distinct - the data may not have followed non-convex shapes. We can continue to improve the accuracies of our models by playing with the regularation of our model, removing data for currently "Enrolled" students from the data set, and by increasing the number of iterations we run K-means for. 
+
+Using the Elbow method, we can see that about 5 clusters is optimal:
+<img src="images/elbow.png" width="800" height="500"/>
+
 
 <h2>References:</h2>
 1. Berens, J., Schneider, K., Görtz, S., Oster, S., & Burghoff, J. (2018). Early detection of students
@@ -61,11 +74,11 @@ To estimate dropout rates of Portuguese college students from the dataset, we'll
 
 | Name                        | Contribution                               |
 | --------------------------- | ------------------------------------------ |
-| Andy Ji                     | Potential Results and Discussion           |
-| Braeden Meikle              | Data Plotting |
-| Venkata Harsh Suhith Muriki | Updating Results, Supervised & Unsupervised Learning|
+| Andy Ji                     | Potential Results and Discussion, Supervised & Unsupervised Learning           |
+| Braeden Meikle              | Data Plotting and Potential Results/Discussion |
+| Quint Fain  | Updating Results, Supervised & Unsupervised Learning|
 | Alex Brezovsky              | Preprocessing using PCA                    |
-| Quint Fain                  | Preprocessing using PCA                    |
+| Venkata Harsh Suhith Muriki | Preprocessing using PCA                    |
 
 <h2>Semester Timeline:</h2>
 <img src="images/Project_Deadlines.png" alt="Timeline" width="500" height="500">
