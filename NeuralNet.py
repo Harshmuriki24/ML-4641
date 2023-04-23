@@ -52,34 +52,36 @@ class NeuralNet:
 
         # print("shape:", test_data.shape)
 
-        predictions = model.predict(X_test)
-        # print("prediction", predictions)
 
-        # Plot the predictions along with the actual values
-        plt.plot(Y, label='Actual')
-        plt.plot(predictions, label='Predicted')
-        plt.legend()
+        predictions = model.predict(X_test)
+        actual = Y
+        accuracy = actual/(predictions + actual)
+
+        five_epoch_accuracy = None
+        ten_epoch_accuracy = accuracy
+        twenty_epoch_accuracy = None
+        fifty_epoch_accuracy = None
+
+        five_feature_accuracy = None
+        ten_feature_accuracy = accuracy
+        twenty_feature_accuracy = None
+        thirtyfour_feature_accuracy = None
+
+
+        # Accuracy vs Epochs plot
+        xlabels = ["5 Epochs", "10 Epochs", "20 Epochs", "50 Epochs"]
+        ylabels = [five_epoch_accuracy, ten_epoch_accuracy, twenty_epoch_accuracy, fifty_epoch_accuracy]
+        dataf = pd.DataFrame({" ":xlabels, "Accuracy":ylabels})
+        sns.barplot(x = " ", y = "Accuracy", data=dataf).set(title='Accuracy versus Number of Epochs')
         plt.show()
 
-        # print()
-        # x = np.array(np.arange(4424))
+        # Accuracy vs Number of Features plot
 
-        # plt.plot(x, Y, label='Dataset 1')
-        # plt.plot(x, predictions, label='Dataset 2')
-        # plt.legend()
-        # plt.title('Two Datasets on the Same Line Plot')
-        # plt.xlabel('X-axis')
-        # plt.ylabel('Y-axis')
-        # plt.show()
-
-        # sns.relplot(data=data).set(title='data Data')
-        # plt.show()
-
-        # xlabels = []#["Train Image Before", "Test Image Before", "Train Image After", "Test Image After"]
-        # ylabels = []#[train_before, test_before, train_after, test_after]
-        # dataf = pd.DataFrame({" ":xlabels, "Columns":ylabels})
-        # #sns.barplot(x = " ", y = "Columns", data=dataf).set(title='title')
-        # #plt.show()
+        xlabels = ["5 Features", "10 Features", "20 Features", "34 Features"]
+        ylabels = [five_feature_accuracy, ten_feature_accuracy, twenty_feature_accuracy, thirtyfour_feature_accuracy]
+        dataf = pd.DataFrame({" ":xlabels, "Accuracy":ylabels})
+        sns.barplot(x = " ", y = "Accuracy", data=dataf).set(title='Accuracy versus Number of Features')
+        plt.show()
 
     if __name__ == '__main__':
         main()
