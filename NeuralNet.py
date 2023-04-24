@@ -15,27 +15,45 @@ class NeuralNet:
         sns.set_theme()
         data = pd.read_csv(url)
 
-        X = data.iloc[:, :-1].values
-        Y = data.iloc[:, -1].values
+        # X = data.iloc[:, :-1].values
+        # Y = data.iloc[:, -1].values
 
-        Y = np.where(Y == 'Dropout', 0, 1)
+        # Y = np.where(Y == 'Dropout', 0, 1)
 
-        X_train, X_test, y_train, y_test = train_test_split(
-            X, Y, test_size=0.3, random_state=42)
-
-        # print()
+        # X_train, X_test, y_train, y_test = train_test_split(
+        #     X, Y, test_size=0.3, random_state=42)
 
         # Define the model architecture
-        model = Sequential()
-        model.add(Dense(4, input_dim=34, activation='relu'))
-        model.add(Dense(1, activation='sigmoid'))
 
-        # Compile the model
-        model.compile(loss='binary_crossentropy',
-                      optimizer='adam', metrics=['accuracy'])
+        # dim = [5, 10, 20, 34]
+        num_epocs = [1, 5, 10, 15]
+        accuracy_arr = []
 
-        # Train the model
-        model.fit(X_train, y_train, epochs=10, batch_size=4)
+        for i in range(len(num_epocs)):
+
+            X = data.iloc[:, :-1].values
+            Y = data.iloc[:, -1].values
+
+            Y_mono = np.where(Y == 'Dropout', 0, 1)
+
+            X_train, X_test, y_train, y_test = train_test_split(
+                X, Y_mono, test_size=0.3, random_state=42)
+
+            model = Sequential()
+            model.add(Dense(4, input_dim=34, activation='relu'))
+            model.add(Dense(1, activation='sigmoid'))
+
+            # Compile the model
+            model.compile(loss='binary_crossentropy',
+                          optimizer='adam', metrics=['accuracy'])
+
+            # Train the model
+            model.fit(X_train, y_train, epochs=num_epocs[i], batch_size=4)
+
+            # Get the accuracy
+            _, accuracy = model.evaluate(X_test, y_test)
+
+            accuracy_arr.append(accuracy)
 
         # Test the model
         # course = data['Course']
@@ -52,35 +70,33 @@ class NeuralNet:
 
         # print("shape:", test_data.shape)
 
+        # predictions = model.predict(X_test)
 
-        predictions = model.predict(X_test)
-        actual = Y
-        accuracy = actual/(predictions + actual)
+        # actual = Y
+        # accuracy = actual/(predictions + actual)
 
-        five_epoch_accuracy = None
-        ten_epoch_accuracy = accuracy
-        twenty_epoch_accuracy = None
-        fifty_epoch_accuracy = None
-
-        five_feature_accuracy = None
-        ten_feature_accuracy = accuracy
-        twenty_feature_accuracy = None
-        thirtyfour_feature_accuracy = None
-
+        # five_epoch_accuracy = None
+        # ten_epoch_accuracy = accuracy
+        # twenty_epoch_accuracy = None
+        # fifty_epoch_accuracy = None
+        print("Accuracy:", accuracy_arr)
+        five_feature_accuracy, ten_feature_accuracy, twenty_feature_accuracy, thirtyfour_feature_accuracy = accuracy_arr
 
         # Accuracy vs Epochs plot
-        xlabels = ["5 Epochs", "10 Epochs", "20 Epochs", "50 Epochs"]
-        ylabels = [five_epoch_accuracy, ten_epoch_accuracy, twenty_epoch_accuracy, fifty_epoch_accuracy]
-        dataf = pd.DataFrame({" ":xlabels, "Accuracy":ylabels})
-        sns.barplot(x = " ", y = "Accuracy", data=dataf).set(title='Accuracy versus Number of Epochs')
-        plt.show()
+        # xlabels = ["5 Epochs", "10 Epochs", "20 Epochs", "50 Epochs"]
+        # ylabels = [five_epoch_accuracy, ten_epoch_accuracy, twenty_epoch_accuracy, fifty_epoch_accuracy]
+        # dataf = pd.DataFrame({" ":xlabels, "Accuracy":ylabels})
+        # sns.barplot(x = " ", y = "Accuracy", data=dataf).set(title='Accuracy versus Number of Epochs')
+        # plt.show()
 
         # Accuracy vs Number of Features plot
 
-        xlabels = ["5 Features", "10 Features", "20 Features", "34 Features"]
-        ylabels = [five_feature_accuracy, ten_feature_accuracy, twenty_feature_accuracy, thirtyfour_feature_accuracy]
-        dataf = pd.DataFrame({" ":xlabels, "Accuracy":ylabels})
-        sns.barplot(x = " ", y = "Accuracy", data=dataf).set(title='Accuracy versus Number of Features')
+        xlabels = ["1 epoch", "5 epochs", "10 epochs", "15 epochs"]
+        ylabels = [five_feature_accuracy, ten_feature_accuracy,
+                   twenty_feature_accuracy, thirtyfour_feature_accuracy]
+        dataf = pd.DataFrame({" ": xlabels, "Accuracy": ylabels})
+        sns.barplot(x=" ", y="Accuracy", data=dataf).set(
+            title='Accuracy versus Number of Epochs')
         plt.show()
 
     if __name__ == '__main__':
