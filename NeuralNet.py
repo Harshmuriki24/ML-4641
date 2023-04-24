@@ -10,6 +10,7 @@ import sklearn
 from sklearn.datasets import make_regression
 from sklearn.linear_model import LinearRegression
 
+
 class NeuralNet:
     def main():
         # Define input data
@@ -26,34 +27,29 @@ class NeuralNet:
         model.fit(X, Y)
         importance = model.coef_
         scores = []
-        
-        for i,v in enumerate(importance):
-            print('Feature: %0d, Score: %.5f' % (i,v))
-            scores.append(i)
 
+        for i, v in enumerate(importance):
+            print('Feature: %0d, Score: %.5f' % (i, v))
+            scores.append(v)
 
-        features = data.iloc[0, :].values #get all of the names
-
+        # features = data.iloc[0][0]  # get all of the names
+        features = data.columns[:-1]
         xlabels = features
         ylabels = scores
-        dataf = pd.DataFrame({" ": xlabels, "Importance": ylabels})
+
+        print(len(features))
+        print(scores)
+
+        start_bound = 21
+        temp_x = xlabels[start_bound: -1]
+        temp_y = ylabels[start_bound:-1]
+        dataf = pd.DataFrame({" ": temp_x, "Importance": temp_y})
         sns.barplot(x=" ", y="Importance", data=dataf).set(
             title='Feature Importance')
         plt.show()
-        
+
         # plt.bar([x for x in range(len(importance))], importance)
         # plt.show()
-
-
-
-
-
-
-
-
-
-
-
 
         # X = data.iloc[:, :-1].values
         # Y = data.iloc[:, -1].values
