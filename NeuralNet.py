@@ -17,14 +17,13 @@ class NeuralNet:
         sns.set_theme()
         data = pd.read_csv(url)
 
-        # My intuition is that it might be hard to print 34 features so we might need to eliminate some.
-        # If we do need to I'm not sure how we will do that. The bar graph also doesn't name the feature at least
-        # on the website example so we should probably add labels to the graph
+        X = data.iloc[:, :-1].values
+        Y = data.iloc[:, -1].values
 
-        # X, y = make_regression(n_samples=1000, n_features=10, n_informative=5, random_state=1) example
-        X, y = make_regression(n_samples=4424, n_features=34, n_informative=5, random_state=1)
+        Y = np.where(Y == 'Dropout', 0, 1)
+
         model = LinearRegression()
-        model.fit(X, y)
+        model.fit(X, Y)
         importance = model.coef_
         scores = []
         
@@ -33,14 +32,14 @@ class NeuralNet:
             scores.append(i)
 
 
-        features = data.iloc[1, :].values #get all of the names
+        features = data.iloc[0, :].values #get all of the names
 
-        # xlabels = features
-        # ylabels = scores
-        # dataf = pd.DataFrame({" ": xlabels, "Importance": ylabels})
-        # sns.barplot(x=" ", y="Importance", data=dataf).set(
-        #     title='Feature Importance')
-        # plt.show()
+        xlabels = features
+        ylabels = scores
+        dataf = pd.DataFrame({" ": xlabels, "Importance": ylabels})
+        sns.barplot(x=" ", y="Importance", data=dataf).set(
+            title='Feature Importance')
+        plt.show()
         
         # plt.bar([x for x in range(len(importance))], importance)
         # plt.show()
@@ -54,7 +53,7 @@ class NeuralNet:
 
 
 
-        
+
 
         # X = data.iloc[:, :-1].values
         # Y = data.iloc[:, -1].values
