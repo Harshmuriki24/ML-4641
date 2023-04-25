@@ -55,6 +55,17 @@ Howeer, the neural networks model that was constructed using sklearn had an asto
 ![image](https://user-images.githubusercontent.com/129024849/234143607-fd5dcbc8-c587-4286-88c8-6293f1b1f649.png)
 
 <h2>Conclusion:</h2>
+Similarly to how identifying cancer early on can be life-saving, having a model that can accurately predict if students will drop out can be utilized to prevent some students from dropping out. One study showed that if likely-to-drop-out students were recognized early and given a plan to get back on track, there was a “14% reduction in dropout rates” (Burgos et al., 2018). 
+
+Previous studies utilizing ML in predictive modeling for school dropout have primarily utilized decision-tree, regression analysis, and neural networks. One study in Madrid, as with its follow up study, utilized 12035 participants identified “student dedication, age, university entrance grade” and “parental/guardian educational background and student degree” as primary factors influencing retention by utilizing decision tree techniques (Constante-Amores et al., 2021; Segura et al., 2022). Similarly, a study conducted in German universities utilized the same methods but did not include many socioeconomic features (Berens et al., 2018). Surprisingly, money does not play as large of a role in dropout rates as it may seem, and many other factors have various effects (Stinebrickner, 2014). A 2020 paper focused solely on socioeconomic features of age, race, human development index, family income, high school provenance, and distance to university; however, these features are very limiting and do not encompass the full extent of a student’s background (Freitas et al., 2020).
+
+Our study utilized the random forest decision-tree model, k-means clustering, logistic regression, and neural networks: most of which have been used in prior research. Using the logistic regression and random forest model, we identified 'Tuition-Fees Up to Date' and 'Curricular units 2nd sem (grade)' as potential areas of focus in improving the student retention rate. These results align with previous studies in the impact of socioeconomic status on outcomes in college, though we identified the amount of credit hours selected (and more importantly, the grade achieved in each course, especially in the second semester) were strong predictors of student dropout rate. However, it is worth mentioning that the logistic regression and decision-tree model had
+
+High accuracy with Neural Networks
+Random Forest Decision Trees and Logistic Regression effective
+K-Means clustering may not be well suited for analyzing drop-out data
+Clusters not being very distinct - the data may not have followed non-convex shapes.
+
 
 <h2>References:</h2>
 1. Berens, J., Schneider, K., Görtz, S., Oster, S., & Burghoff, J. (2018). Early detection of students
