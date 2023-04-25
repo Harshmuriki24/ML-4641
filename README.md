@@ -26,17 +26,35 @@ To classify the data and identify student risk factors for dropout, we implement
 <h2>Results and Discussion:</h2>
 To estimate dropout rates of Portuguese college students from the dataset, we used sklearn's _score function. With a diverse dataset, we anticipated low margins of error and high model performance in determining the dropout rates, though this was not the case for all models. Our supervised models are far from perfect and report accuracies at 75% (logistic regression) and 78% (random forest). These results indicate the necessity of fine tuning of hyperparameters (especially with the random forest model), including features considered when splitting nodes and the exact number of decision trees in the forest model. Logistic regression hyperparameters using sklearn include solver (algorithm), penalty (regularization - generalization and regulation of overfitting), and C (regularization strength).
 
+Using sklearn's model.coef_ function, we were able to identify the features that had the most significant impact on student dropout rate. In the case of the logistic regression model, only three features that had significant above 0.08: 'Curricular units 2nd sem (grade)' at ~0.09, and more significantly 'Tuition-Fees Up to Date' and  'International Student' at >.25 and >.17 respectively. 
+
+![image](https://user-images.githubusercontent.com/129024849/234147303-19fd64c0-5b46-40c6-be52-8e8f9d002c9b.png)
+
+![image](https://user-images.githubusercontent.com/129024849/234147320-a6325538-7b98-4359-822c-afebfd4bba2b.png)
+
+![image](https://user-images.githubusercontent.com/129024849/234147327-563db660-2a00-4d81-99cf-2832e22a278a.png)
+
+Using the decision tree model, several more features were highlighted: 'Tuition-Fees Up to Date' at >0.06, 'Age of Enrollment' at ~0.045, and more importantly 'Curricular units 2nd sem (grade)' at ~0.15, 'Curricular units 2nd sem (approved)' at ~.13, plus 'Curricular units 1st sem (evaluations)' and 'Curricular units 1st sem (approved)' at ~0.08. 
+
+![image](https://user-images.githubusercontent.com/129024849/234147915-8589fbd0-baab-4f90-8285-307e46384b97.png)
+
+![image](https://user-images.githubusercontent.com/129024849/234147925-c14bdf3c-46b9-493b-9874-1526c0fcb80e.png)
+
+![image](https://user-images.githubusercontent.com/129024849/234147936-f4789150-3f26-48eb-bc6a-93832d93d44a.png)
+
+Though the weights the features are differing across models, the major commonalities include 'Tuition-Fees Up to Date' and 'Curricular units 2nd sem (grade)'. This suggests that in order to combat student dropout rate, university systems should consider these features as a starting point.
 
 Unfortunately, the accuracy of K-means sits at -18,000 (even after optimal clusters = 5 found using elbow method, see figure below), and as the sklearns kmeans accuracy method demonstrates that 'good clustering' scores are close to 0, this method needs significant improvement. However, as kmeans maximizes intercluster distances and is an unsupervised model (does not use labels in training), a better metric of accuracy may be the Rand Index, which we will run for the next submission. Utilizing the Silhouette  Score yielded a result 0.009, and as higher scores (bounded betweeen -1 and 1) indicate better clustering, the clustering in this model was poor with clusters not being very distinct - the data may not have followed non-convex shapes. We can continue to improve the accuracies of our models by playing with the regularation of our model, removing data for currently "Enrolled" students from the data set, and by increasing the number of iterations we run K-means for. 
 
 Using the Elbow method, we can see that about 5 clusters is optimal:
 <img src="images/elbow.png" width="800" height="500"/>
 
-Howeer, the neural networks model that was constructed using sklearn had an astounding 89% accuracy. The neural networks model demonstrated increased accuracy as the number of features increased, though the number of epochs did not significantly increase accuracy after 5 epochs.
+Howeer, the neural networks model that was constructed using sklearn had an astounding 89% accuracy. The neural networks model demonstrated increased accuracy as the number of features increased, though the number of epochs did not significantly increase accuracy after 5 epochs. This high accuracy rate can be attributed to the capacity of neural networks to handle complex data, such as student dropout data with the multitude of features.
 
 ![image](https://user-images.githubusercontent.com/129024849/234143593-a22a49a7-3512-4682-aea4-b13ef82ae661.png)
 ![image](https://user-images.githubusercontent.com/129024849/234143607-fd5dcbc8-c587-4286-88c8-6293f1b1f649.png)
 
+<h2>Conclusion:</h2>
 
 <h2>References:</h2>
 1. Berens, J., Schneider, K., Görtz, S., Oster, S., & Burghoff, J. (2018). Early detection of students
