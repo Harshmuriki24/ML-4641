@@ -33,6 +33,7 @@ Using the Elbow method, we can see that about 5 clusters is optimal:
 <img src="images/elbow.png" width="800" height="500"/>
 
 Howeer, the neural networks model that was constructed using sklearn had an astounding 89% accuracy. The neural networks model demonstrated increased accuracy as the number of features increased, though the number of epochs did not significantly increase accuracy after 5 epochs.
+
 ![image](https://user-images.githubusercontent.com/129024849/234143593-a22a49a7-3512-4682-aea4-b13ef82ae661.png)
 ![image](https://user-images.githubusercontent.com/129024849/234143607-fd5dcbc8-c587-4286-88c8-6293f1b1f649.png)
 
