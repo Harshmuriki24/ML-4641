@@ -61,10 +61,6 @@ Previous studies utilizing ML in predictive modeling for school dropout have pri
 
 Our study utilized the random forest decision-tree model, k-means clustering, logistic regression, and neural networks: most of which have been used in prior research. Using the logistic regression and random forest model, we identified 'Tuition-Fees Up to Date' and 'Curricular units 2nd sem (grade)' as potential areas of focus in improving the student retention rate. These results align with previous studies in the impact of socioeconomic status on outcomes in college, though we identified the amount of credit hours selected (and more importantly, the grade achieved in each course, especially in the second semester) were strong predictors of student dropout rate. However, it is worth mentioning that the logistic regression and decision-tree model had
 
-High accuracy with Neural Networks
-Random Forest Decision Trees and Logistic Regression effective
-K-Means clustering may not be well suited for analyzing drop-out data
-Clusters not being very distinct - the data may not have followed non-convex shapes.
 
 
 <h2>References:</h2>
