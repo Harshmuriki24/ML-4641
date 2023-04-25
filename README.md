@@ -110,5 +110,15 @@ As with existing research, we conclude that neural networks, decision-trees, and
 | Alex Brezovsky              | Preprocessing using PCA                    |
 | Venkata Harsh Suhith Muriki | Preprocessing using PCA                    |
 
+<h2>Contribution Table 3:</h2>
+
+| Name                        | Contribution                               |
+| --------------------------- | ------------------------------------------ |
+| Andy Ji                     | GitHub Results/Discussion/Conclusion, Video, Random Forest, K-Means model|
+| Braeden Meikle              | Plotting, Neural net, Feature Importance, PowerPoint |
+| Venkata Harsh Suhith Muriki | PCA, Neural Net, Feature Importance, Plotting        |
+| Alex Brezovsky              | PCA, Powerpoint       |
+| Quint Fain                  | Logistic Regression Model, K-means model, Methods |
+
 <h2>Semester Timeline:</h2>
 <img src="images/Project_Deadlines.png" alt="Timeline" width="500" height="500">
